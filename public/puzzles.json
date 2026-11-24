@@ -1,0 +1,1075 @@
+[
+  {
+    "id": "allgammon-20261118-g02-r020",
+    "source": "Allgammon .mat export \u00b7 Game 2",
+    "positionId": "Nh7wAgyY2wcDAg",
+    "matchId": "cAmgABAAAAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        0,
+        1
+      ],
+      "cubeValue": 1,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        0,
+        0,
+        -2,
+        2,
+        0,
+        3,
+        2,
+        5,
+        0,
+        0,
+        -1,
+        -4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -4,
+        1,
+        0,
+        -2,
+        -2,
+        0
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "no-double",
+      "note": "GNUbg says: No double, take. Normalized equity \u2014 no double +0.736; double/take +0.717; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "No double, take",
+      "equities": {
+        "optimal": 0.735764,
+        "noDouble": 0.735764,
+        "doubleTake": 0.716839,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 2,
+      "record": 20,
+      "player": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "no-double"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g02-r042-response",
+    "source": "Allgammon .mat export \u00b7 Game 2",
+    "positionId": "dvcOAAC3rUcAAA",
+    "matchId": "MBGgABAAAAAE",
+    "decisionType": "response",
+    "playerOnRoll": "opponent",
+    "match": {
+      "length": 5,
+      "score": [
+        1,
+        0
+      ],
+      "cubeValue": 1,
+      "offeredCubeValue": 2,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        4,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -3,
+        -4,
+        -3,
+        -3,
+        -2,
+        0
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "take",
+      "note": "GNUbg says: Take. The opponent should not have doubled, but once they did, take is your best response."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Take",
+      "offerRecommendation": "No double, take",
+      "equities": {
+        "optimal": -0.060869,
+        "noDouble": 0.247433,
+        "doubleTake": -0.060869,
+        "doublePass": 1.0,
+        "unit": "normalized equity (doubler perspective)"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 2,
+      "record": 42,
+      "player": "X",
+      "doubler": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-response",
+      "take"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g01-r015",
+    "source": "Allgammon .mat export \u00b7 Game 1",
+    "positionId": "mp2RA0DcmoUABw",
+    "matchId": "cAmgAAAAAAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        0,
+        0
+      ],
+      "cubeValue": 1,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        0,
+        0,
+        3,
+        2,
+        1,
+        2,
+        0,
+        2,
+        1,
+        0,
+        0,
+        -3,
+        1,
+        -1,
+        0,
+        0,
+        -2,
+        0,
+        -3,
+        -2,
+        3,
+        -2,
+        -1,
+        0
+      ],
+      "bar": [
+        0,
+        1
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "double-take",
+      "note": "GNUbg says: Double, take. Normalized equity \u2014 no double +0.543; double/take +0.617; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Double, take",
+      "equities": {
+        "optimal": 0.616934,
+        "noDouble": 0.542735,
+        "doubleTake": 0.616934,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 1,
+      "record": 15,
+      "player": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "double-take",
+      "match-cube-error"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g01-r028-response",
+    "source": "Allgammon .mat export \u00b7 Game 1",
+    "positionId": "MztDAxCz2wCAQw",
+    "matchId": "cBmgAAAAAAAE",
+    "decisionType": "response",
+    "playerOnRoll": "opponent",
+    "match": {
+      "length": 5,
+      "score": [
+        0,
+        0
+      ],
+      "cubeValue": 1,
+      "offeredCubeValue": 2,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        2,
+        -1,
+        2,
+        3,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        -1,
+        0,
+        0,
+        0,
+        -2,
+        0,
+        -3,
+        -2,
+        3,
+        -2,
+        0,
+        -2
+      ],
+      "bar": [
+        1,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "pass",
+      "note": "GNUbg says: Pass. After the opponent's double, pass is your best response at this score."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Pass",
+      "offerRecommendation": "Double, pass",
+      "equities": {
+        "optimal": 1.0,
+        "noDouble": 0.915716,
+        "doubleTake": 1.112336,
+        "doublePass": 1.0,
+        "unit": "normalized equity (doubler perspective)"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 1,
+      "record": 28,
+      "player": "O",
+      "doubler": "X"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-response",
+      "pass"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g01-r028",
+    "source": "Allgammon .mat export \u00b7 Game 1",
+    "positionId": "s9sAgEMzO0MDEA",
+    "matchId": "MAGgAAAAAAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        0,
+        0
+      ],
+      "cubeValue": 1,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        2,
+        0,
+        2,
+        -3,
+        2,
+        3,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        -2,
+        -3,
+        -2,
+        1,
+        -2
+      ],
+      "bar": [
+        0,
+        1
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "double-pass",
+      "note": "GNUbg says: Double, pass. Normalized equity \u2014 no double +0.916; double/take +1.112; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Double, pass",
+      "equities": {
+        "optimal": 1.0,
+        "noDouble": 0.915716,
+        "doubleTake": 1.112336,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 1,
+      "record": 28,
+      "player": "X"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "double-pass"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g06-r006",
+    "source": "Allgammon .mat export \u00b7 Game 6",
+    "positionId": "4HPwAEnBa/AJIA",
+    "matchId": "cAmgAEAAGAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        3,
+        4
+      ],
+      "cubeValue": 1,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        1,
+        -1,
+        0,
+        -1,
+        0,
+        4,
+        1,
+        2,
+        0,
+        0,
+        0,
+        -4,
+        5,
+        0,
+        1,
+        0,
+        -3,
+        0,
+        -5,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "bar": [
+        0,
+        1
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "too-good",
+      "note": "GNUbg says: Too good to double, pass. Normalized equity \u2014 no double +1.041; double/take +1.340; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Too good to double, pass",
+      "equities": {
+        "optimal": 1.041228,
+        "noDouble": 1.041228,
+        "doubleTake": 1.33975,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 6,
+      "record": 6,
+      "player": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "too-good"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g04-r009-response",
+    "source": "Allgammon .mat export \u00b7 Game 4",
+    "positionId": "jOfEGQBoV8MBMA",
+    "matchId": "cBmgADAAEAAE",
+    "decisionType": "response",
+    "playerOnRoll": "opponent",
+    "match": {
+      "length": 5,
+      "score": [
+        2,
+        3
+      ],
+      "cubeValue": 1,
+      "offeredCubeValue": 2,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        1,
+        1,
+        2,
+        -2,
+        0,
+        -3,
+        3,
+        0,
+        -1,
+        0,
+        -3,
+        0,
+        -4,
+        0,
+        0,
+        -2,
+        0,
+        2
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "take",
+      "note": "GNUbg says: Take. The opponent should not have doubled, but once they did, take is your best response."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Take",
+      "offerRecommendation": "No double, take",
+      "equities": {
+        "optimal": 0.50732,
+        "noDouble": 0.729947,
+        "doubleTake": 0.50732,
+        "doublePass": 1.0,
+        "unit": "normalized equity (doubler perspective)"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 4,
+      "record": 9,
+      "player": "O",
+      "doubler": "X"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-response",
+      "take"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g02-r024",
+    "source": "Allgammon .mat export \u00b7 Game 2",
+    "positionId": "djzgAQzYbQcDIA",
+    "matchId": "cAmgABAAAAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        0,
+        1
+      ],
+      "cubeValue": 1,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        0,
+        0,
+        -2,
+        2,
+        3,
+        2,
+        2,
+        3,
+        0,
+        0,
+        0,
+        -4,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -4,
+        0,
+        0,
+        -3,
+        -2,
+        1
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "double-take",
+      "note": "GNUbg says: Double, take. Normalized equity \u2014 no double +0.873; double/take +0.891; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Double, take",
+      "equities": {
+        "optimal": 0.891333,
+        "noDouble": 0.873153,
+        "doubleTake": 0.891333,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 2,
+      "record": 24,
+      "player": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "double-take"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g03-r036",
+    "source": "Allgammon .mat export \u00b7 Game 3",
+    "positionId": "bdcAAGBdDwAAAA",
+    "matchId": "AQGgABAAEAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        1,
+        2
+      ],
+      "cubeValue": 2,
+      "cubeOwner": "you"
+    },
+    "board": {
+      "points": [
+        0,
+        2,
+        1,
+        3,
+        1,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        -1,
+        -3,
+        -2,
+        -2,
+        -1
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        4,
+        4
+      ]
+    },
+    "answer": {
+      "action": "no-double",
+      "note": "GNUbg says: No redouble, take. Normalized equity \u2014 no double +0.151; double/take +0.048; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "No redouble, take",
+      "equities": {
+        "optimal": 0.151358,
+        "noDouble": 0.151358,
+        "doubleTake": 0.047688,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 3,
+      "record": 36,
+      "player": "X"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "no-double",
+      "redouble"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g03-r029-response",
+    "source": "Allgammon .mat export \u00b7 Game 3",
+    "positionId": "3d0WAAC27RcAAA",
+    "matchId": "MBGgABAAEAAE",
+    "decisionType": "response",
+    "playerOnRoll": "opponent",
+    "match": {
+      "length": 5,
+      "score": [
+        1,
+        2
+      ],
+      "cubeValue": 1,
+      "offeredCubeValue": 2,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        0,
+        2,
+        2,
+        2,
+        2,
+        6,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        -2,
+        -2,
+        -3,
+        -3,
+        -3,
+        -1
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "pass",
+      "note": "GNUbg says: Pass. After the opponent's double, pass is your best response at this score."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Pass",
+      "offerRecommendation": "Double, pass",
+      "equities": {
+        "optimal": 1.0,
+        "noDouble": 0.964214,
+        "doubleTake": 1.839117,
+        "doublePass": 1.0,
+        "unit": "normalized equity (doubler perspective)"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 3,
+      "record": 29,
+      "player": "X",
+      "doubler": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-response",
+      "pass"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g02-r030",
+    "source": "Allgammon .mat export \u00b7 Game 2",
+    "positionId": "2zELAA7YbQcTAA",
+    "matchId": "cAmgABAAAAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        0,
+        1
+      ],
+      "cubeValue": 1,
+      "cubeOwner": "centered"
+    },
+    "board": {
+      "points": [
+        0,
+        0,
+        -3,
+        2,
+        3,
+        2,
+        2,
+        3,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        -1,
+        -2,
+        0,
+        -2,
+        0,
+        0,
+        -3,
+        -2,
+        -2
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        0,
+        0
+      ]
+    },
+    "answer": {
+      "action": "double-pass",
+      "note": "GNUbg says: Double, pass. Normalized equity \u2014 no double +0.959; double/take +1.277; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Double, pass",
+      "equities": {
+        "optimal": 1.0,
+        "noDouble": 0.959172,
+        "doubleTake": 1.277363,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 2,
+      "record": 30,
+      "player": "O"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "double-pass",
+      "match-cube-error"
+    ]
+  },
+  {
+    "id": "allgammon-20261118-g03-r038",
+    "source": "Allgammon .mat export \u00b7 Game 3",
+    "positionId": "2TUAALR4AAAAAA",
+    "matchId": "AQGgABAAEAAE",
+    "decisionType": "offer",
+    "playerOnRoll": "you",
+    "match": {
+      "length": 5,
+      "score": [
+        1,
+        2
+      ],
+      "cubeValue": 2,
+      "cubeOwner": "you"
+    },
+    "board": {
+      "points": [
+        1,
+        2,
+        1,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -2,
+        -1,
+        -3,
+        -2,
+        0,
+        -1
+      ],
+      "bar": [
+        0,
+        0
+      ],
+      "off": [
+        7,
+        6
+      ]
+    },
+    "answer": {
+      "action": "double-pass",
+      "note": "GNUbg says: Redouble, pass. Normalized equity \u2014 no double +0.898; double/take +1.580; double/pass +1.000."
+    },
+    "analysis": {
+      "engine": "GNU Backgammon 1.08.003",
+      "method": "2-ply cubeful evaluation; pruning on; deterministic; noise 0.000",
+      "recommendation": "Redouble, pass",
+      "equities": {
+        "optimal": 1.0,
+        "noDouble": 0.898422,
+        "doubleTake": 1.579547,
+        "doublePass": 1.0,
+        "unit": "normalized equity"
+      },
+      "settings": {
+        "plies": 2,
+        "cubeful": true,
+        "pruning": true,
+        "deterministic": true,
+        "noise": 0.0
+      }
+    },
+    "provenance": {
+      "sourceFile": "data/matches/allgammon/recent-2026-11-18/20261118T021008Z_d8b5bc53-2d53-4553-8005-0c196e59dfac.mat",
+      "game": 3,
+      "record": 38,
+      "player": "X"
+    },
+    "tags": [
+      "match-play",
+      "2-ply",
+      "cube-offer",
+      "double-pass",
+      "redouble",
+      "match-cube-error"
+    ]
+  }
+]

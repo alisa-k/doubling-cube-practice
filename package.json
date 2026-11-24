@@ -1,0 +1,16 @@
+{
+  "name": "doubling-cube-practice",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "puzzles": "./scripts/gnubg --tty --quiet --no-rc --python=scripts/extract-puzzles.py"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}

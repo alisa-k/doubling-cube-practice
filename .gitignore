@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.tools/
+.DS_Store
+
+# Personal match exports stay local by default.
+data/matches/*
+!data/matches/.gitkeep
+data/generated/
+
