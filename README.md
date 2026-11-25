@@ -17,9 +17,9 @@ The repository includes a GitHub Actions workflow that builds and deploys the
 static app whenever `main` is pushed. In the GitHub repository settings, choose
 **Pages → Build and deployment → GitHub Actions** as the publishing source.
 
-The generated site contains `public/puzzles.json`, but private `.mat` inputs,
-GNUbg analysis intermediates, and the project-local GNUbg installation remain
-ignored and are not deployed.
+Vite bundles the first puzzles with the app and publishes the rest in small
+batches that load as needed. Private `.mat` inputs, GNUbg analysis intermediates,
+and the project-local GNUbg installation remain ignored and are not deployed.
 
 ## Current architecture
 

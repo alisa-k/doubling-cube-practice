@@ -1,4 +1,5 @@
 import "./styles.css";
+import { batchSize, firstBatch, laterBatches, puzzleCount } from "virtual:puzzle-data";
 import { actionLabels, isPuzzle, type CubeAction, type Puzzle } from "./puzzle";
 
 const offerActions: CubeAction[] = ["no-double", "double-take", "double-pass", "too-good"];
@@ -106,11 +107,20 @@ function boardMarkup(puzzle: Puzzle): string {
   `;
 }
 
-function render(puzzles: Puzzle[], puzzleIndex: number): void {
+async function showPuzzle(puzzleIndex: number): Promise<void> {
+  const laterIndex = puzzleIndex - firstBatch.length;
+  const puzzle = laterIndex < 0
+    ? firstBatch[puzzleIndex]
+    : (await laterBatches[Math.floor(laterIndex / batchSize)]()).default[laterIndex % batchSize];
+  if (!isPuzzle(puzzle)) throw new Error("Puzzle data is invalid");
+
+  render(puzzle, puzzleIndex);
+}
+
+function render(puzzle: Puzzle, puzzleIndex: number): void {
   const app = document.querySelector<HTMLElement>("#app");
   if (!app) throw new Error("App root not found");
 
-  const puzzle = puzzles[puzzleIndex];
   const progress = readProgress();
   const score = progress.attempts === 0 ? "—" : `${Math.round((progress.correct / progress.attempts) * 100)}%`;
   const matchLabel = puzzle.match.length === 0 ? "Money game" : `${puzzle.match.length}-point match`;
@@ -143,8 +153,8 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
           </div>
         </div>
       `;
-  const nextPuzzleIndex = (puzzleIndex + 1) % puzzles.length;
-  const nextLabel = puzzleIndex === puzzles.length - 1 ? "Start over" : "Next puzzle";
+  const nextPuzzleIndex = (puzzleIndex + 1) % puzzleCount;
+  const nextLabel = nextPuzzleIndex === 0 ? "Start over" : "Next puzzle";
 
   app.innerHTML = `
     <header class="header">
@@ -180,7 +190,7 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
     </section>
 
     <footer>
-      Puzzle ${puzzleIndex + 1} of ${puzzles.length} · ${puzzle.source} · ${puzzle.analysis.engine}
+      Puzzle ${puzzleIndex + 1} of ${puzzleCount} · ${puzzle.source} · ${puzzle.analysis.engine}
     </footer>
   `;
 
@@ -219,32 +229,33 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
       if (feedback) {
         feedback.innerHTML = `
           <span class="visually-hidden">${correct ? "Correct." : `The correct answer is ${actionLabels[puzzle.answer.action]}.`}</span>
+          <span class="load-error"></span>
           <button type="button" class="reset">${nextLabel}</button>
         `;
-        feedback
-          .querySelector<HTMLButtonElement>(".reset")
-          ?.addEventListener("click", () => render(puzzles, nextPuzzleIndex));
+        const nextButton = feedback.querySelector<HTMLButtonElement>(".reset");
+        const loadError = feedback.querySelector<HTMLElement>(".load-error");
+        nextButton?.addEventListener("click", async () => {
+          nextButton.disabled = true;
+          if (loadError) loadError.textContent = "";
+          try {
+            await showPuzzle(nextPuzzleIndex);
+          } catch (error) {
+            console.error(error);
+            if (loadError) loadError.textContent = "Could not load the next puzzle. Try again or reload the page.";
+            nextButton.disabled = false;
+            nextButton.focus();
+          }
+        });
       }
     });
   });
 }
 
-async function start(): Promise<void> {
-  const response = await fetch(`${import.meta.env.BASE_URL}puzzles.json`);
-  if (!response.ok) throw new Error("Could not load puzzle data");
-
-  const data: unknown = await response.json();
-  if (!Array.isArray(data) || data.length === 0 || !data.every(isPuzzle)) {
-    throw new Error("Puzzle data is invalid");
-  }
-
-  render(data, 0);
-}
-
-start().catch((error: unknown) => {
+showPuzzle(0).catch((error: unknown) => {
+  console.error(error);
   const app = document.querySelector<HTMLElement>("#app");
   if (app) {
-    app.innerHTML = `<p class="fatal-error">${error instanceof Error ? error.message : "The app could not start."}</p>`;
+    app.innerHTML = '<p class="fatal-error" role="alert">Could not load the first puzzle. Reload the page to try again.</p>';
   }
 });
 
