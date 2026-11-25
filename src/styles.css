@@ -114,12 +114,6 @@ h2 {
   font-weight: 750;
 }
 
-.eyebrow--player {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
 .color-dot {
   display: inline-block;
   width: 14px;
@@ -234,7 +228,7 @@ h2 {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   min-height: 238px;
-  background: #587d7c;
+  background: #759d9a;
 }
 
 .board__quadrant--upper-left {
@@ -516,11 +510,62 @@ h2 {
 
 .decision-card {
   margin-top: 20px;
-  padding: 24px;
+  padding: 22px 24px 26px;
+}
+
+.decision-player {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 20px;
+}
+
+.decision-player__dot {
+  width: 32px;
+  height: 32px;
+  flex-basis: 32px;
+  border-width: 2px;
+  box-shadow:
+    0 2px 4px rgb(33 29 24 / 16%),
+    0 0 0 5px rgb(217 204 185 / 26%);
+}
+
+.decision-player__copy {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 7px 12px;
+}
+
+.decision-player h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 4vw, 2.35rem);
+  line-height: 1;
+}
+
+.decision-player h2 span {
+  color: #665546;
+  font-weight: 500;
+}
+
+.decision-player__status {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 5px 10px;
+  border: 1px solid #9db7b3;
+  border-radius: 999px;
+  background: #e3efed;
+  color: #315b58;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .decision-context {
-  margin: -10px 0 20px;
+  margin: -8px 0 20px 45px;
   color: #665546;
   font-size: 0.95rem;
 }
@@ -543,6 +588,10 @@ h2 {
   background: transparent;
   color: #38291e;
   cursor: pointer;
+}
+
+.actions button {
+  font-size: 1.02rem;
 }
 
 .actions button:hover:not(:disabled),

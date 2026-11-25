@@ -195,8 +195,7 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
   const cubeLabel = isResponse
     ? `Opponent doubled: cube ${puzzle.match.cubeValue} → ${puzzle.match.offeredCubeValue ?? puzzle.match.cubeValue * 2}`
     : `Cube ${puzzle.match.cubeValue}, ${puzzle.match.cubeOwner}`;
-  const decisionCue = isResponse ? "White (you) · Responding to a double" : "White (you) · On roll";
-  const decisionQuestion = isResponse ? "Do you take or pass?" : "What is the correct cube action?";
+  const decisionStatus = isResponse ? "Responding to a double" : "On roll";
   const decisionContext = isResponse
     ? '<p class="decision-context">Your opponent offered the double. This take/pass decision is yours.</p>'
     : "";
@@ -242,9 +241,14 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
       ${boardMarkup(puzzle)}
     </section>
 
-    <section class="decision-card">
-      <p class="eyebrow eyebrow--player"><span class="color-dot color-dot--white" aria-hidden="true"></span>${decisionCue}</p>
-      <h2>${decisionQuestion}</h2>
+    <section class="decision-card" aria-labelledby="decision-player">
+      <div class="decision-player">
+        <span class="color-dot color-dot--white decision-player__dot" aria-hidden="true"></span>
+        <div class="decision-player__copy">
+          <h2 id="decision-player">White <span>(you)</span></h2>
+          <strong class="decision-player__status">${decisionStatus}</strong>
+        </div>
+      </div>
       ${decisionContext}
       <div class="actions ${isResponse ? "actions--response" : ""}">
         ${actions.map((action) => `<button type="button" data-action="${action}">${actionLabels[action]}</button>`).join("")}
