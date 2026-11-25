@@ -27,95 +27,20 @@ function formatEquity(value: number): string {
   return `${value >= 0 ? "+" : ""}${value.toFixed(3)}`;
 }
 
-function explanationWithoutEquities(note: string): string {
-  return note.split(" Normalized equity")[0] ?? note;
-}
-
-function equityBreakdownMarkup(puzzle: Puzzle): string {
+function equityForAction(puzzle: Puzzle, action: CubeAction): number | null {
   const equities = puzzle.analysis.equities;
-  if (!equities) return "";
+  if (!equities) return null;
 
-  const isResponse = puzzle.decisionType === "response";
-  const recommendation = puzzle.analysis.recommendation?.toLowerCase() ?? "";
-  const opponentReply = recommendation.includes("pass")
-    ? "pass"
-    : recommendation.includes("take")
-      ? "take"
-      : null;
-  const options = isResponse
-    ? [
-        {
-          action: "take" as CubeAction,
-          label: "Take",
-          value: -equities.doubleTake,
-          detail: "Your equity if you accept the double",
-        },
-        {
-          action: "pass" as CubeAction,
-          label: "Pass",
-          value: -equities.doublePass,
-          detail: "Your equity if you give up the game",
-        },
-      ]
-    : [
-        {
-          action: puzzle.answer.action === "too-good" ? ("too-good" as CubeAction) : ("no-double" as CubeAction),
-          label: puzzle.answer.action === "too-good" ? "Play on (too good)" : "No double",
-          value: equities.noDouble,
-          detail: "Equity if you keep the cube where it is",
-        },
-        {
-          action: "double-take" as CubeAction,
-          label: "Double / Take",
-          value: equities.doubleTake,
-          detail: "Equity if you double and opponent takes",
-        },
-        {
-          action: "double-pass" as CubeAction,
-          label: "Double / Pass",
-          value: equities.doublePass,
-          detail: "Equity if you double and opponent passes",
-        },
-      ];
+  if (puzzle.decisionType === "response") {
+    if (action === "take") return -equities.doubleTake;
+    if (action === "pass") return -equities.doublePass;
+    return null;
+  }
 
-  return `
-    <section class="equity-breakdown" aria-labelledby="equity-title">
-      <div class="equity-breakdown__heading">
-        <strong id="equity-title">Equity comparison</strong>
-        <span>Normalized equity · higher is better for you</span>
-      </div>
-      <div class="equity-options">
-        ${options
-          .map(
-            ({ action, label, value, detail }) => {
-              const isOpponentReply =
-                !isResponse &&
-                ((action === "double-take" && opponentReply === "take") ||
-                  (action === "double-pass" && opponentReply === "pass"));
-              return `
-              <div class="equity-option ${action === puzzle.answer.action ? "equity-option--best" : ""}">
-                <div class="equity-option__label">
-                  <span>${label}</span>
-                  <span class="equity-option__badges">
-                    ${action === puzzle.answer.action ? '<strong class="equity-option__badge">Correct action</strong>' : ""}
-                    ${isOpponentReply ? '<strong class="equity-option__badge equity-option__badge--reply">Opponent’s reply</strong>' : ""}
-                  </span>
-                </div>
-                <output>${formatEquity(value)}</output>
-                <p>${detail}</p>
-              </div>
-            `;
-            },
-          )
-          .join("")}
-      </div>
-      ${
-        isResponse
-          ? '<p class="equity-breakdown__note">GNUbg stores these branches from the doubler’s perspective; they are shown here from your perspective.</p>'
-          : '<p class="equity-breakdown__note">After a double, your opponent chooses their best reply. A higher hypothetical branch does not help if they would choose the other response. “Too good” uses the play-on/no-double equity.</p>'
-      }
-    </section>
-  `;
+  if (action === "no-double" || action === "too-good") return equities.noDouble;
+  if (action === "double-take") return equities.doubleTake;
+  if (action === "double-pass") return equities.doublePass;
+  return null;
 }
 
 function checkerMarkup(count: number, explicitOwner?: "you" | "opponent"): string {
@@ -223,6 +148,7 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
 
   app.innerHTML = `
     <header class="header">
+      <h1>Doubling Puzzles</h1>
       <dl class="score" aria-label="Practice progress">
         <div><dt>Attempts</dt><dd id="attempt-count">${progress.attempts}</dd></div>
         <div><dt>Accuracy</dt><dd id="accuracy-score">${score}</dd></div>
@@ -248,7 +174,7 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
       </div>
       ${decisionContext}
       <div class="actions ${isResponse ? "actions--response" : ""}">
-        ${actions.map((action) => `<button type="button" data-action="${action}">${actionLabels[action]}</button>`).join("")}
+        ${actions.map((action) => `<button type="button" data-action="${action}"><span>${actionLabels[action]}</span></button>`).join("")}
       </div>
       <div id="feedback" class="feedback" aria-live="polite"></div>
     </section>
@@ -278,21 +204,22 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
         accuracyScore.textContent = `${Math.round((nextProgress.correct / nextProgress.attempts) * 100)}%`;
       }
       buttons.forEach((choice) => {
+        const choiceAction = choice.dataset.action as CubeAction;
+        const equity = equityForAction(puzzle, choiceAction);
+
         choice.disabled = true;
-        if (choice.dataset.action === puzzle.answer.action) choice.classList.add("correct");
+        if (choiceAction === puzzle.answer.action) choice.classList.add("correct");
+        if (equity !== null) {
+          choice.classList.add("has-equity");
+          choice.innerHTML = `<span>${actionLabels[choiceAction]}</span><output class="action-equity">${formatEquity(equity)}</output>`;
+        }
       });
       if (!correct) button.classList.add("incorrect");
 
       if (feedback) {
         feedback.innerHTML = `
-          <div class="feedback__summary">
-            <strong>${correct ? "Correct." : `Answer: ${actionLabels[puzzle.answer.action]}.`}</strong>
-            <span>${explanationWithoutEquities(puzzle.answer.note)}</span>
-          </div>
-          ${equityBreakdownMarkup(puzzle)}
-          <div class="feedback__actions">
-            <button type="button" class="reset">${nextLabel}</button>
-          </div>
+          <span class="visually-hidden">${correct ? "Correct." : `The correct answer is ${actionLabels[puzzle.answer.action]}.`}</span>
+          <button type="button" class="reset">${nextLabel}</button>
         `;
         feedback
           .querySelector<HTMLButtonElement>(".reset")
