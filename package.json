@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "puzzles": "./scripts/gnubg --tty --quiet --no-rc --python=scripts/extract-puzzles.py"
+    "puzzles": "./scripts/gnubg --tty --quiet --no-rc --python=scripts/extract-puzzles.py",
+    "puzzles:all": "./scripts/gnubg --tty --quiet --no-rc --python=scripts/extract-all-cube-puzzles.py"
   },
   "devDependencies": {
     "typescript": "^7.0.2",

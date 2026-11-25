@@ -64,6 +64,18 @@ decisions at deterministic cubeful 2-ply, saves private intermediates under
 set. It requires the project-local GNUbg installation and the source match at
 the path recorded in `scripts/extract-puzzles.py`.
 
+## Generate every recorded cube decision
+
+```sh
+npm run puzzles:all
+```
+
+This scans the 300 private Allgammon `.mat` files, evaluates every recorded
+double at deterministic cubeful 2-ply, and emits both the offer decision and
+the corresponding take/pass response. Progress is checkpointed under the
+ignored `data/generated/` directory. Raw match files remain local; only the
+derived browser puzzle records are written to `public/puzzles.json`.
+
 ## Puzzle pipeline
 
 ```text
@@ -71,7 +83,7 @@ data/matches/*.mat
         ↓
 normalization + GNU Backgammon analysis
         ↓
-curated pilot selection
+puzzle selection or all recorded cube decisions
         ↓
 public/puzzles.json
         ↓
