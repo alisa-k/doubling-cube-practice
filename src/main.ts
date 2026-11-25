@@ -223,9 +223,6 @@ function render(puzzles: Puzzle[], puzzleIndex: number): void {
 
   app.innerHTML = `
     <header class="header">
-      <div>
-        <h1>Doubling Cube Practice</h1>
-      </div>
       <dl class="score" aria-label="Practice progress">
         <div><dt>Attempts</dt><dd id="attempt-count">${progress.attempts}</dd></div>
         <div><dt>Accuracy</dt><dd id="accuracy-score">${score}</dd></div>
